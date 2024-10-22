@@ -1,0 +1,56 @@
+networks:
+  app-network:
+    driver: bridge
+
+services:
+  backend:
+    container_name: backend
+    image: php:8.2-apache
+    build: ./uptrips_api
+    restart: unless-stopped
+    env_file:
+      - "./uptrips_api/laravel-app/.env"
+    volumes: 
+      - ./uptrips_api/laravel-app:/var/www
+    ports:
+      - 8001:80
+    networks: 
+      - app-network
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest  # Imagem oficial do MySQL
+    env_file:
+      - "./uptrips_api/.env"
+    ports:
+      - "3306:3306"  # Mapeia a porta 3306 do host para a porta 3306 do container
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql-config/mysql-init:/docker-entrypoint-initdb.d    
+    networks:
+      - app-network
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./uptrips_frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./uptrips_frontend/app:/app
+    ports:
+      - '3000:3000'
+    networks: 
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 3080:80
+    env_file:
+      - "./uptrips_api/.env"
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:

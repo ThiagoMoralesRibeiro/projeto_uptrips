@@ -1,0 +1,6 @@
+[submodule "uptrips_api"]
+	path = uptrips_api
+	url = https://github.com/PedroClemonini/uptrips_api
+[submodule "uptrips_frontend"]
+	path = uptrips_frontend
+	url = https://github.com/PedroClemonini/uptrips_frontend.git
