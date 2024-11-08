@@ -6,7 +6,9 @@ services:
   backend:
     container_name: backend
     image: php:8.2-apache
-    build: ./api_docker
+    build: 
+      context: .
+      dockerfile: Dockerfile.api
     restart: unless-stopped
     env_file:
       - "./uptrips_api/laravel-app/.env"
@@ -20,8 +22,6 @@ services:
   mysql:
     container_name: mysql
     image: mysql:latest  # Imagem oficial do MySQL
-    env_file:
-      - "./uptrips_api/.env"
     ports:
       - "3306:3306"  # Mapeia a porta 3306 do host para a porta 3306 do container
     volumes:
@@ -29,28 +29,38 @@ services:
       - ./mysql-config/mysql-init:/docker-entrypoint-initdb.d    
     networks:
       - app-network
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=uptrips_viagens
+      - MYSQL_USER=uptrips
+      - MYSQL_PASSWORD=password
 
   frontend:
     container_name: frontend
-    build:
-      context: ./frontend_docker
-      dockerfile: Dockerfile
+    build: 
+      context: .
+      dockerfile: Dockerfile.frontend
     volumes:
       - ./uptrips_frontend/app:/app
+      - /app/node_modules
     ports:
       - '3000:3000'
     networks: 
       - app-network
+      
 
   phpmyadmin:
     image: phpmyadmin
     restart: always
     ports:
       - 3080:80
-    env_file:
-      - "./uptrips_api/.env"
     networks:
       - app-network
+    environment:
+      - PMA_HOST=mysql  
+      - PMA_USER=uptrips  
+      - PMA_PASSWORD=password 
 
 volumes:
   mysql_data:
