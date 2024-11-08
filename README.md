@@ -1,8 +1,11 @@
-# API | Up Trips - Viagens e Turismo 🏝️
+# Projeto | Up Trips - Viagens e Turismo 🏝️
 ___
-Neste projeto, será abordado o desenvolvimento da API para ser utilizada no Projeto Up Trips o projeto completo pode ser encontrado [neste link](https://github.com/PedroClemonini/projeto_uptrips).
+Repositório de desenvolvimento do projeto de extensão da empresa Up Trips - Viagens e Turismo o projeto completo pode ser encontrado neste repositório, com a instalação da api e do frontend podendo ser realizada via docker.
+[link do projeto](https://github.com/PedroClemonini/projeto_uptrips).
 
-Esta API será desenvolvida em PHP 8.2 utilizando o Framework Laravel, servidor em Ngnix e Banco de Dados em Postgress.
+Separamos o projeto em dois repositórios, frontend e api
+A API será desenvolvida em PHP 8.2 utilizando o Framework Laravel, servidor apache e Banco de Dados em MYSQL.
+O Frontend será desenvolvido utilizando a biblioteca React JS e Tailwind
 
 ##  Passos para subir o container Docker 🐳:
 
@@ -27,28 +30,35 @@ Instale os pacotes
 ```bash
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-
-### 2. Crie o (.env) do laravel
+### 2. Clone o repositório em sua máquina de forma recursiva
 ```bash
-$ cd laravel-app
+$ git clone --recursive https://github.com/PedroClemonini/projeto_uptrips.git
+```
+
+### 3. Crie o (.env) do Laravel
+```bash
+$ cd uptrips_api/laravel-app
 $ cp .env.example .env
 ```
-### 3. Subindo o container 📦
 
+### 4. Crie o (.env) do React
 ```bash
-$ cd uptrips_api
-$ docker compose build
-$ docker compose up -d
+$ cd uptrips_frontend/app
+$ cp .env.example .env
 ```
 
-### 4. Instalando dependências
+### 5. Subindo o container 📦
+
+```bash
+$ docker compose up --build -d
+```
+
+### 6. Instalando dependências
 ```bash
 $ docker compose exec -T app composer install
 ```
 
-### 5. Realizar as migrations do banco
+### 7. Realizar as migrations do banco
 ```bash
 $ docker compose exec -T app php artisan migrate
 ```
-
-
