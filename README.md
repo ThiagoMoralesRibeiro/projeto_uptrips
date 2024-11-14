@@ -21,7 +21,7 @@ Você pode trabalhar no uptrips_api ou no uptrips_frontend, para isso, no github
 ### 3. Aponte corretamente os repositórios origin e upstream
 
 ```bash
-git remote add origin https://github.com/<seu_usuario>/<nome_do_repositorio_trabalhado>.git
+git remote set-url origin https://github.com/<seu_usuario>/<nome_do_repositorio_trabalhado>.git
 git remote add upstream https://github.com/PedroClemonini/<nome_do_repositorio_trabalhado.git
 ```
 
