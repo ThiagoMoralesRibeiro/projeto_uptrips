@@ -73,24 +73,18 @@ cd uptrips_api/laravel-app
 cp .env.example .env
 ```
 
-### 3. Crie o (.env) do React
-```bash
-cd uptrips_frontend/app
-cp .env.example .env
-```
-
-### 4. Subindo o container 📦
+### 3. Subindo o container 📦
 
 ```bash
 docker compose up --build -d
 ```
 
-### 5. Instalando dependências
+### 4. Instalando dependências
 ```bash
 docker compose exec -T app composer install
 ```
 
-### 6. Realizar as migrations do banco
+### 5. Realizar as migrations do banco
 ```bash
 $ docker compose exec -T app php artisan migrate
 ```
