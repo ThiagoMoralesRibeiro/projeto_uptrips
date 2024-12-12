@@ -21,7 +21,7 @@ Você pode trabalhar no uptrips_api ou no uptrips_frontend, para isso, no github
 ### 3. Aponte corretamente os repositórios origin e upstream
 
 ```bash
-git remote add origin https://github.com/<seu_usuario>/<nome_do_repositorio_trabalhado>.git
+git remote set-url origin https://github.com/<seu_usuario>/<nome_do_repositorio_trabalhado>.git
 git remote add upstream https://github.com/PedroClemonini/<nome_do_repositorio_trabalhado.git
 ```
 
@@ -73,24 +73,18 @@ cd uptrips_api/laravel-app
 cp .env.example .env
 ```
 
-### 3. Crie o (.env) do React
-```bash
-cd uptrips_frontend/app
-cp .env.example .env
-```
-
-### 4. Subindo o container 📦
+### 3. Subindo o container 📦
 
 ```bash
 docker compose up --build -d
 ```
 
-### 5. Instalando dependências
+### 4. Instalando dependências
 ```bash
 docker compose exec -T app composer install
 ```
 
-### 6. Realizar as migrations do banco
+### 5. Realizar as migrations do banco
 ```bash
 $ docker compose exec -T app php artisan migrate
 ```
