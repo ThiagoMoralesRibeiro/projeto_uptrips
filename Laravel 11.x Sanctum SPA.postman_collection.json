@@ -1,0 +1,780 @@
+{
+	"info": {
+		"_postman_id": "fa8683ab-e564-4574-8dd5-acb9130703e0",
+		"name": "Laravel 11.x Sanctum SPA",
+		"description": "A template collection for authentication to Laravel 11.x using Sanctum SPA authentication.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34374777"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "csrf-cookie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/sanctum/csrf-cookie",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sanctum",
+								"csrf-cookie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\":\"pedro@email.com\",\n\"password\":\"pedro1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\":\"pedro@email.com\",\n\"password\":\"pedro1234\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"pedro\",\n\"email\":\"pedro@email.com\",\n\"phone\":\"11981881019\",\n\"cpf\":\"48270643858\",\n\"rg\":\"565993690\",\n\"birth\":\"2004-09-29\",\n\"password\":\"pedro1234\",\n\"password_confirmation\":\"pedro1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Destination",
+			"item": [
+				{
+					"name": "Destination",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Ferroviaria \",\n\"description\": \"A cidade de Jundiai é um lugar incrível e ....\",\n\"city\": \"Jundiai\",\n\"state\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/destination",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"destination"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destination",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Rivieira de São Lourenço\",\n\"description\": \"A cidade de bertioga é um lugar incrível e ....\",\n\"city\": \"Bertioga\",\n\"state\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/destination",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"destination"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destination_id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Rivieira de São Lourenço\",\n\"description\": \"A cidade de bertioga é um lugar incrível e ....\",\n\"city\": \"Bertioga\",\n\"state\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/destination/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"destination",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destination",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Rivieira de São Lourenço\",\n\"description\": \"A cidade de bertioga é um lugar incrível e muito requisitada\",\n\"city\": \"Bertioga\",\n\"state\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/destination/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"destination",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hosting",
+			"item": [
+				{
+					"name": "Hosting",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"hotel sao joão\",\n    \"description\" :\"O hotel sao joao é um otimo hotel\",\n    \"document\" : \"39343961000134\",\n    \"address\" : \"Rua sao bento ali do lado\",\n    \"contact_phone\" : \"1198913455\",\n    \"contact_email\" : \"email@empresa.com\",\n    \"destination_id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hosting",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hosting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hosting",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Rivieira de São Lourenço\",\n\"description\": \"A cidade de bertioga é um lugar incrível e ....\",\n\"city\": \"Bertioga\",\n\"state\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/destination",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"destination"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accommodation",
+			"item": [
+				{
+					"name": "Accommodation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Rivieira de São Lourenço\",\n\"description\": \"A cidade de bertioga é um lugar incrível e ....\",\n\"city\": \"Bertioga\",\n\"state\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accommodation/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accommodation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accommodation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Suite master\",\n\"description\": \"Este quarto oferece uma acomodação confortável e funcional, com os seguintes detalhes:\\nCamas: 1 cama de casal (1,60m x 2,00m), equipada com lençóis de algodão e travesseiros para proporcionar um bom descanso.\\nEspaço: Área total de 20m², com espaço suficiente para circulação e armazenamento.\\nIluminação: Iluminação principal e de leitura ajustável, com controle de intensidade.\\nAr-condicionado: Equipado com ar-condicionado individual para controle de temperatura, garantindo conforto durante toda a estadia.\\nEntretenimento: TV de tela plana com canais a cabo e Wi-Fi gratuito com acesso à internet de alta velocidade.\\nBanheiro: Banheiro privativo com chuveiro, toalhas de banho e amenities (sabonete, shampoo e condicionador)\",\n\"price\": 100.00,\n\"hosting_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/accommodation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"accommodation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tour",
+			"item": [
+				{
+					"name": "Tour",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Parque Nacional\",\n    \"description\": \"Um parque nacional com diversas atrações turísticas.\",\n    \"company\": \"Turismo Aventura Ltda.\",\n    \"document\": \"12345678900\",\n    \"maintainer_phone\": \"912345678\",\n    \"maintainer_email\": \"contato@aventura.com\",\n    \"image1_path\": \"uploads/images/park_image1.jpg\",\n    \"image2_path\": \"uploads/images/park_image2.jpg\",\n    \"image3_path\": \"uploads/images/park_image3.jpg\",\n    \"image4_path\": \"uploads/images/park_image4.jpg\",\n    \"image5_path\": \"uploads/images/park_image5.jpg\",\n    \"image6_path\": \"uploads/images/park_image6.jpg\",\n    \"image7_path\": \"uploads/images/park_image7.jpg\",\n    \"child_value\": 50.00,\n    \"adult_value\": 100.00,\n    \"destination_id\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/tour",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tour"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tour",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "Package",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/packages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"packages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Package Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Tropical Paradise Tour\",\n    \"description\": \"A tour through the most beautiful tropical beaches.\",\n    \"image1_path\": \"/images/tour1.jpg\",\n    \"start_date\": \"2024-12-15\",\n    \"end_date\": \"2024-12-20\",\n    \"child_value\": 100.50,\n    \"adult_value\": 200.75,\n    \"destination_id\": 1,\n    \"hosting_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/packages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"packages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "Reservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"childs\": 0,\n  \"adults\": 2,\n  \"status\": \"awaiting_payment\",\n  \"payment_date\": null,\n  \"user_id\":3,\n  \"trip_package_id\": 1,\n  \"accommodations\": [\n    {\n        \"id\": 1,\n        \"accommodation_price\": 150.0\n    }\n  ],\n  \"passengers\": [\n    {   \n      \"name\": \"Pedro Silva\",\n      \"rg\": \"123456789\",\n      \"cpf\": \"123.456.789-00\",\n      \"age\": 35\n    },\n    {   \n      \"name\": \"Isabela Santos\",\n      \"rg\": \"987654321\",\n      \"cpf\": \"98765432100\",\n      \"age\": 34\n    }\n  ],\n  \"tours\": [\n    {\n      \"id\": 1,\n      \"quantity_child\": 0,\n      \"quantity_adult\": 2\n    }\n\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reservation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reservation Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"childs\": 0,\n  \"adults\": 2,\n  \"status\": \"awaiting_payment\",\n  \"payment_date\": null,\n  \"trip_package_id\": 1,\n  \"user_id\":2,\n  \"accommodations\": [\n    {\n      \"id\": 1,\n      \"price\": 150.0\n    }\n  ],\n  \"passengers\": [\n    {   \n      \"name\": \"Pedro Silva\",\n      \"rg\": \"123456789\",\n      \"cpf\": \"123.456.789-00\",\n      \"age\": 35\n    },\n    {   \n      \"name\": \"Isabela Santos\",\n      \"rg\": \"987654321\",\n      \"cpf\": \"987.654.321-00\",\n      \"age\": 34\n    }\n  ],\n  \"tours\": [\n    {\n      \"id\": 1,\n      \"quantity_child\": 0,\n      \"quantity_adult\": 2\n    }\n\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reservation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const jar = pm.cookies.jar();",
+					"",
+					"jar.get(\"http://localhost:3000\", \"XSRF-TOKEN\", (err, cookie) => {",
+					"",
+					"    pm.request.addHeader({",
+					"        key: \"X-XSRF-TOKEN\",",
+					"        value: cookie",
+					"    });",
+					"",
+					"",
+					"    pm.request.addHeader({",
+					"        key: \"Referer\",",
+					"        value: \"http://localhost:3000\"",
+					"    });",
+					"",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8001",
+			"type": "string"
+		}
+	]
+}
